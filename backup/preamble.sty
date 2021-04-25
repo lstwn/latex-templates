@@ -1,0 +1,252 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{preamble}
+
+%%% common packages
+% sets language specific items
+\RequirePackage{babel}
+% recommended for babel
+\RequirePackage{csquotes}
+% for font management
+\RequirePackage{fontspec}
+% for better font looks
+\RequirePackage{microtype}
+% for multiple source files
+\RequirePackage{subfiles}
+% for custom page setup
+\RequirePackage{geometry}
+
+%%% tables
+% for sane tables
+\RequirePackage{tabularx}
+% required for tabularx
+\RequirePackage{array}
+% for spanned rows in a table
+\RequirePackage{multirow}
+% for a column layout
+\RequirePackage{multicol}
+% for nicer looking tables
+\RequirePackage{booktabs}
+
+%%% math stuff
+% for displaying mathematical formulas
+\RequirePackage{amsmath}
+% for displaying mathematical formulas
+\RequirePackage{amsfonts}
+% for displaying mathematical formulas
+\RequirePackage{amssymb}
+% for theorems
+\RequirePackage{amsthm}
+% for not implies
+\RequirePackage{centernot}
+% for bold math
+\RequirePackage{bm}
+
+%%% graphics
+% for inserting graphics
+\RequirePackage{graphicx}
+% for vector graphics
+\RequirePackage{tikz}
+% for plotting graphs
+\RequirePackage{pgfplots}
+% for wrapping text around figures
+\RequirePackage{wrapfig}
+% for supcaptions in figures containing multiple figures
+\RequirePackage{subcaption}
+% for rotating text/pictures etc.
+\RequirePackage{rotating}
+% for protocol headers
+\RequirePackage{bytefield}
+
+%%% other
+% for source code
+\RequirePackage{listings}
+% for color usage
+\RequirePackage{xcolor}
+% for custom headers
+\RequirePackage{fancyhdr}
+% for cross refs and hyperlinks
+\RequirePackage[hidelinks]{hyperref}
+% for multi line comments
+\RequirePackage{comment}
+% for bibliography
+\RequirePackage[style=ieee,citestyle=ieee]{biblatex}
+
+%%% package authoring help
+% add some logic to your docs
+\RequirePackage{ifthen}
+% for key=value arguments
+\RequirePackage{kvoptions}
+
+% options
+
+\newif\if@cheatsheet\@cheatsheetfalse
+\newif\if@presentation\@presentationfalse
+
+\renewcommand{\familydefault}{\sfdefault}
+\pagenumbering{gobble}
+
+\DeclareOption{serif}{
+    \renewcommand{\familydefault}{\rmdefault}
+}
+\DeclareOption{pagenumb}{
+    \pagenumbering{arabic}
+}
+\DeclareOption{a4paper}{
+    \geometry{a4paper, margin=2cm, includefoot, footskip=30pt}
+}
+\DeclareOption{a5paper}{
+    \geometry{a5paper, margin=1cm, includefoot, footskip=30pt}
+}
+\DeclareOption{cheatsheet}{
+    \@cheatsheettrue
+}
+\DeclareOption{presentation}{
+    \@presentationtrue
+}
+\DeclareOption*{
+    \ClassWarning{preamble}{Unknown option '\CurrentOption'}
+}
+
+\ProcessOptions\relax
+
+\if@cheatsheet
+    \RequirePackage{titlesec}          % for custom section conf
+    \RequirePackage{enumitem}          % for enumeration spacing options
+    \geometry{a4paper, margin=0.5cm, includeheadfoot, landscape}
+    \titleformat*{\section}{\scriptsize\bfseries}
+    \titleformat*{\subsection}{\scriptsize\bfseries}
+    \titleformat*{\subsubsection}{\scriptsize\bfseries}
+    \titlespacing*{\section}{0pt}{1ex}{1.1ex}
+    \titlespacing*{\subsection}{0pt}{1ex}{1.1ex}
+    \titlespacing*{\subsubsection}{0pt}{1ex}{1.1ex}
+    \setlength{\columnseprule}{0pt}
+    \setlength{\columnsep}{0.5cm}
+    \def\columnseprulecolor{\color{black}}
+    \pagestyle{fancy}
+    \fancyhf{}
+    \lhead{\scriptsize\Title}
+    \rhead{\scriptsize\textit{\today} \,| \thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+    \setlength{\headsep}{5pt}
+    \setlist{noitemsep,nolistsep,nosep,leftmargin=0pt,itemindent=0pt}
+    %\def\retainlengths{
+    %    \setlength{\abovedisplayskip}{0pt}%
+    %    \setlength{\belowdisplayskip}{0pt}%
+    %    \setlength{\abovedisplayshortskip}{0pt}%
+    %    \setlength{\belowdisplayshortskip}{0pt}%
+    %}
+    %\let\oldselectfont\selectfont
+    %\def\selectfont{\oldselectfont\retainlengths}
+    %\retainlengths
+    \setlength{\abovedisplayskip}{0pt}%
+    \setlength{\belowdisplayskip}{0pt}%
+    \setlength{\abovedisplayshortskip}{0pt}%
+    \setlength{\belowdisplayshortskip}{0pt}%
+    \setlength{\parskip}{0pt}
+    \setlength{\parindent}{0pt}
+    \setlength{\fboxsep}{0.5pt} % colorbox size
+    \newcommand{\markyellow}[1]{\colorbox{ORANGE}{#1}}
+    \newcommand{\markgreen}[1]{\colorbox{GREEN}{#1}}
+    \newcommand{\markred}[1]{\colorbox{RED}{#1}}
+    \newcommand{\markblue}[1]{\colorbox{BLUE}{#1}}
+\fi
+
+\if@presentation
+    \RequirePackage{appendixnumberbeamer}
+    \metroset{numbering=fraction,progressbar=none,block=fill}
+    \setbeamertemplate{section in toc}[sections numbered]
+    \newcommand{\footer}[1]{\setbeamertemplate{frame footer}{#1}}
+    \setbeamercolor{normal text}{ fg=BLACK, bg=white }
+    \setbeamercolor{example text}{ fg=GREEN }
+    \setbeamercolor{alerted text}{ fg=RED }
+    %\setbeamercolor{palette primary}{bg=BLACK,fg=white}
+    %\setbeamercolor{palette secondary}{bg=BLACK,fg=white}
+    %\setbeamercolor{palette tertiary}{bg=BLACK,fg=white}
+    %\setbeamercolor{palette quaternary}{bg=BLACK,fg=white}
+    %\setbeamercolor{structure}{fg=BLACK} % itemize, enumerate, etc
+    %\setbeamercolor{section in toc}{fg=BLACK} % TOC sections
+    %\addtobeamertemplate{navigation symbols}{}{%
+    %    \usebeamerfont{footline}%
+    %    \usebeamercolor[fg]{footline}%
+    %    \hspace{1em}%
+    %    \insertframenumber/\inserttotalframenumber
+    %}
+\fi
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{external}
+\tikzexternalize
+\tikzsetexternalprefix{build/}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}[1]{>{\raggedright\arraybackslash}X}
+\newcolumntype{s}{@{}}
+\newcolumntype{d}{@{ }}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\Title}{\@title}
+
+% colours from one dark
+
+\definecolor{BLACK}{HTML}{282c34}
+\definecolor{BRIGHTBLACK}{HTML}{545862}
+\definecolor{RED}{HTML}{e06c75}
+\definecolor{BRIGHTRED}{HTML}{fa868f}
+\definecolor{GREEN}{HTML}{98c379}
+\definecolor{BRIGHTGREEN}{HTML}{B2DD93}
+\definecolor{ORANGE}{HTML}{e5c07b}
+\definecolor{BRIGHTORANGE}{HTML}{FFDA95}
+\definecolor{BLUE}{HTML}{61afef}
+\definecolor{BRIGHTBLUE}{HTML}{7BC9FF}
+\definecolor{PURPLE}{HTML}{c678dd}
+\definecolor{BRIGHTPURPLE}{HTML}{E092F7}
+\definecolor{TURQUOISE}{HTML}{56b6c2}
+\definecolor{BRIGHTTURQUOISE}{HTML}{70D0DC}
+\definecolor{GREY}{HTML}{abb2bf}
+\definecolor{BRIGHTGREY}{HTML}{c8ccd4}
+
+% settings
+
+% \setromanfont[
+%    BoldFont={noto-serif-regular}
+%   ]{dejavu-serif}
+% \setsansfont[
+%    BoldFont={noto-sans-regular}
+%    ItalicFont={noto-sans-italic}
+%   ]{dejavu-sans}
+% \setmonofont{noto-sans-mono}
+
+% has to be set after setting the fonts
+%\RequirePackage[italic]{mathastext}% for displaying math letters with regular font
+
+\graphicspath{{img/}{../img/}}
+
+\hypersetup{
+    pdftitle=\@title,
+    pdfauthor=\@author,
+    bookmarksopen=true,
+    pdfpagemode=UseNone,
+}
+
+\lstset{
+    basicstyle=\ttfamily\small\color{black},           % font size of the code
+    backgroundcolor=\color{white},                     % choose the background color
+    keywordstyle=\bfseries\color{BLUE},                % keyword style
+    commentstyle=\color{GREY},                         % comment style
+    stringstyle=\color{ORANGE},                        % string literal style
+    numberstyle=\scriptsize\color{black},              % the style that is used for the line-numbers
+    language=Caml,                                     % which programming language is used
+    morekeywords={},                                   % add more keywords to the set
+    deletekeywords={},                                 % delete keywords from the given language
+    showstringspaces=false,                            % underline spaces within strings only
+    tabsize=2,	                                       % sets default tabsize to 2 spaces
+    numbers=none,                                      % possible values are (none, left, right)
+    numbersep=5pt,                                     % how far the line-numbers are from the code
+    %  title=\lstname                                     % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\pgfplotsset{
+    compat=1.13,
+}
+
+\endinput

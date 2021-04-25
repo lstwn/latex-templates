@@ -1,0 +1,91 @@
+\documentclass[USenglish,ngerman]{article} % either 'ngerman' or 'USenglish'
+
+\usepackage[parfill]{parskip}
+\usepackage{titling}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\newcommand{\sendsurname}{}
+\newcommand{\sendname}{}
+\newcommand{\sendspecial}{}
+\newcommand{\sendstreet}{}
+\newcommand{\sendzip}{}
+\newcommand{\sendcity}{}
+\newcommand{\sendcountry}{}
+\newcommand{\sendemail}{}
+\newcommand{\sendphone}{}
+
+\newcommand{\recsurname}{}
+\newcommand{\recname}{}
+\newcommand{\recspecial}{}
+\newcommand{\recstreet}{}
+\newcommand{\reczip}{}
+\newcommand{\reccity}{}
+\newcommand{\reccountry}{}
+
+\title{}
+\author{\sendname{} \sendsurname{}}
+\date{\today}
+
+\renewcommand{\familydefault}{\sfdefault}
+\pagenumbering{arabic}
+\geometry{a4paper, margin=2cm, includefoot, footskip=30pt}
+\hypersetup{
+  pdftitle=\thetitle,
+  pdfauthor=\theauthor,
+  bookmarksopen=true,
+  pdfpagemode=UseNone,
+  hidelinks,
+}
+
+\begin{document}
+
+\begin{flushright}
+  \textbf{\sendname{} \sendsurname{}}\break{}
+  \sendstreet{}\break{}
+  \sendzip{} \sendcity{}\break{}
+  \sendcountry{}\break{}
+  \sendemail{}\break{}
+  \sendphone{}%
+\end{flushright}
+
+\bigskip
+
+{\scriptsize \sendname{} \sendsurname{}, \sendstreet{}, \sendzip{} \sendcity{}, \sendcountry{}}
+\bigskip\newline{}
+\textbf{\recname{} \recsurname{}}\newline{}
+\recspecial{}\newline{}
+\recstreet{}\newline{}
+\reczip{} \reccity{}\newline{}
+\reccountry{}
+
+\bigskip
+
+\begin{flushright}
+  \thedate{}
+\end{flushright}
+
+\subsubsection*{\thetitle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bigskip
+Sehr geehrte Damen und Herren,
+\bigskip
+
+% Text
+
+\bigskip
+Mit freundlichen Grüßen
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bigskip
+\makebox[2.5in]{\hrulefill}\newline{}
+% \begin{figure}[h]
+% \includegraphics[height=0.8cm]{signature.png}
+% \end{figure}
+
+\end{document}

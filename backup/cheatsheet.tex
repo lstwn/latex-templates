@@ -1,0 +1,21 @@
+\documentclass[ngerman,USenglish]{article} % either 'ngerman' or 'USenglish'
+
+\title{Class | WS1920 TUM}
+\author{Leo Stewen}
+\date{\today}
+\usepackage[cheatsheet]{preamble}
+
+\begin{document}
+\begin{multicols*}{3}[\noindent\Title]
+\scriptsize
+
+\block{\section{Commands}}{
+    \cheat{default gateway}{\code{sudo ip route add default via <ip> dev <iface>}}
+}
+
+\block[3]{\subsection{Useful Math}}{
+    \cheat{sum first n numbers}{\jax{\sum_{i=1}^n \frac{n(n+1)}{2}}}
+}
+
+\end{multicols*}
+\end{document}
