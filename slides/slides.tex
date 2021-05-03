@@ -1,0 +1,77 @@
+\documentclass[ngerman,USenglish]{beamer} % either 'ngerman' or 'USenglish'
+
+\usetheme[numbering=fraction,progressbar=frametitle]{metropolis}
+
+% general
+\usepackage{babel}
+\usepackage{csquotes}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[style=ieee,citestyle=ieee]{biblatex}
+
+% tables
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{booktabs}
+
+% math
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{centernot}
+\usepackage{bm}
+
+% figures
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{listings}
+
+\usepackage{appendixnumberbeamer}
+
+\title{}
+\subtitle{}
+\author{}
+\date{\today}
+
+\graphicspath{{figures/}{../figures/}}
+\hypersetup{
+  pdftitle=\title,
+  pdfauthor=\author,
+  bookmarksopen=true,
+  pdfpagemode=UseNone,
+  hidelinks,
+}
+\metroset{numbering=fraction,progressbar=none,block=fill}
+\setbeamertemplate{section in toc}[sections numbered]
+% \newcommand{\footer}[1]{\setbeamertemplate{frame footer}{#1}}
+% \setbeamercolor{normal text}{ fg=BLACK, bg=white }
+% \setbeamercolor{example text}{ fg=GREEN }
+% \setbeamercolor{alerted text}{ fg=RED }
+\usetikzlibrary{external}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{fit}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{shapes.callouts}
+\usetikzlibrary{decorations.pathreplacing}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}{Contents}
+\tableofcontents
+\end{frame}
+
+\end{document}
+
