@@ -1,3 +1,41 @@
+\documentclass[USenglish]{article} % either 'ngerman' or 'USenglish'
+
+\usepackage[parfill]{parskip}
+\usepackage{titling}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{tabularx}
+
+\newcommand{\surname}{Stewen}
+\newcommand{\name}{Leo}
+\newcommand{\street}{Wilhelm-Hertz-Str. 6B}
+\newcommand{\zip}{80805}
+\newcommand{\city}{Munich}
+\newcommand{\country}{Germany}
+\newcommand{\email}{lstwn@mailbox.org}
+\newcommand{\phone}{+49 157 885 232 46}
+\newcommand{\birthday}{01.05.1995}
+
+\title{CV \name{} \surname{}}
+\author{\name{} \surname{}}
+\date{\today}
+
+\renewcommand{\familydefault}{\sfdefault}
+\pagenumbering{arabic}
+\geometry{a4paper, margin=1.5cm, includefoot, footskip=30pt}
+\hypersetup{
+  pdftitle=\thetitle,
+  pdfauthor=\theauthor,
+  bookmarksopen=true,
+  pdfpagemode=UseNone,
+  hidelinks,
+}
+
+\begin{document}
+
 \begin{wrapfigure}{r!}{0.5\textwidth}
   \begin{flushright}
     \includegraphics[height=5.0cm]{LeoStewen.jpeg}
@@ -24,7 +62,7 @@
 \begin{tabularx}{\textwidth}{@{}p{4cm}X}
 
   Since 04.2022 &
-  M. Sc. Computer Science \textbar{} Technical University of Munich
+  M. Sc. Data Engineering and Analytics \textbar{} Technical University of Munich
   \textcolor{gray}{
     \newline Part-time studies} \\
 
@@ -46,7 +84,7 @@
   \textcolor{gray}{
     \newline Specialization: International Management} \\
 
-  Bis 07.2013         &
+  Until 07.2013         &
   Clemens-Brentano-Gymnasium \textbar{} Dülmen
   \textcolor{gray}{
     \newline Grade: 1.6
@@ -62,19 +100,22 @@
     Since 04.2022 &
     Lavego AG \textbar{} Munich
     \textcolor{gray}{
-      \newline Full stack software engineer working with Typescript, Vue.js and NodeJS
+      \newline Maintenance of the EMV configuration builder and adoption of the
+        \href{https://www.nexo-standards.org}{Nexo payment standard}
       \newline Part-time} \\
 
     05.2021 until 04.2022 &
     Lavego AG \textbar{} Munich
     \textcolor{gray}{
-      \newline Full stack software engineer working with Typescript, Vue.js and NodeJS
+      \newline Software engineer working with Typescript and NodeJS on a micro service
+        generating \href{https://www.emvco.com}{EMV} configurations for POS terminals
       \newline Full-time} \\
 
     10.2018 until 04.2021 &
     Lavego AG \textbar{} Munich
     \textcolor{gray}{
-      \newline Working student in software engineering
+      \newline Working student building a web frontend to 
+        \href{https://www.nexo-standards.org/news/reinventing-wheel-how-lavego-ag-brought-innovation-pos-nexo-standards}{Lavego's Paysphere payment processing platform}
       \newline 20 hours/week} \\
 
     10.2016 until 02.2017 &
@@ -123,11 +164,11 @@
     Languages &
     German \textbar{} Native speaker
     \newline English \textbar{} Fluent (C1)
-    \newline Spanish \textbar{} Beginner (A1) \\
+    \newline Spanish \textbar{} Beginner (A2) \\
 
     Coding &
     (Java\textbar{}Type)script, Rust \textbar{} Advanced skills \newline
-    Java, Ocaml, Python, HTML, CSS \textbar{} Basic skills \\
+    Java, Ocaml, Python, Lua, Vimscript, HTML, CSS \textbar{} Basic skills \\
 
     Software &
     Word, Powerpoint, Excel, InDesign, Latex \textbar{} Advanced skills \\
@@ -145,3 +186,4 @@
 \makebox[2.5in]{\hrulefill}\newline{}
 \small\city{}, \today{} \\
 
+\end{document}
