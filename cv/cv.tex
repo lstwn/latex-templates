@@ -25,7 +25,7 @@
 
 \renewcommand{\familydefault}{\sfdefault}
 \pagenumbering{arabic}
-\geometry{a4paper, margin=1.5cm, includefoot, footskip=30pt}
+\geometry{a4paper, margin=2.0cm, includefoot, footskip=30pt}
 \hypersetup{
   pdftitle=\thetitle,
   pdfauthor=\theauthor,
@@ -42,15 +42,14 @@
   \end{flushright}\label{img:passphoto}
 \end{wrapfigure}
 
-\subsection*{\name{} \surname{}}
+\section*{\name{} \surname{}}
 \textcolor{gray}{
   \street{}\\
   \zip{} \city{}\\
+  \country{}\\
   \birthday{}\\
-  \email{}\\
+  \href{mailto:\email?subject=Curriculum\%20Vitae\%20\name\%20\surname}{\email}\\
   \phone{}
-  \bigskip
-  \bigskip
   \bigskip
   \bigskip
   \bigskip
@@ -100,7 +99,7 @@
     Since 04.2022 &
     Lavego AG \textbar{} Munich
     \textcolor{gray}{
-      \newline Maintenance of the EMV configuration builder and adoption of the
+      \newline Maintenance of the EMV configurator and adoption of the
         \href{https://www.nexo-standards.org}{Nexo payment standard}
       \newline Part-time} \\
 
@@ -182,6 +181,7 @@
   \end{tabularx}\label{tab:skills}
 \end{table}
 
+\bigskip
 \bigskip
 \makebox[2.5in]{\hrulefill}\newline{}
 \small\city{}, \today{} \\
